@@ -1,0 +1,102 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">CareVisible</p>
+        <p class="fine footer-blurb">
+          Free AI and local search visibility scorecards for independent, non-franchise home care agencies.
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-head">Services</p>
+        <ul class="footer-links">
+          <li><a href="/services/setup-sprint/">Setup Sprint</a></li>
+          <li><a href="/services/visibility-retainer/">Visibility Retainer</a></li>
+          <li><a href="/services/competitor-report/">Competitor Report</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-head">Learn</p>
+        <ul class="footer-links">
+          <li><a href="/how-it-works/">How it works</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/learn/">Guides and definitions</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-head">Get started</p>
+        <ul class="footer-links">
+          <li><a href="/scorecard/">Free scorecard</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fine disclaimer">
+      CareVisible is an independent consulting practice and is not affiliated with Google, OpenAI,
+      Anthropic, Perplexity, or any AI assistant provider. Scorecards reflect a point-in-time
+      measurement; AI citation results can vary substantially month to month. No guaranteed rankings
+      and no fixed timeline on organic search results.
+    </p>
+    <p class="fine">&copy; {year} {site.name}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--surface-alt);
+    border-top: 1px solid var(--line);
+    padding: 52px 0 34px;
+    margin-top: 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 34px;
+  }
+  .footer-brand {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--indigo-deep);
+    margin: 0 0 8px;
+  }
+  .footer-blurb { max-width: 34ch; }
+  .footer-head {
+    font-weight: 700;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--indigo-deep);
+    margin: 0 0 12px;
+  }
+  .footer-links { list-style: none; margin: 0; padding: 0; }
+  .footer-links li { margin-bottom: 9px; }
+  .footer-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: .92rem;
+  }
+  .footer-links a:hover { color: var(--indigo); text-decoration: underline; }
+  .disclaimer {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    max-width: 90ch;
+  }
+  @media (max-width: 820px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+  }
+</style>
