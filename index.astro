@@ -1,0 +1,296 @@
+---
+import Base from '../layouts/Base.astro';
+import PillarCards from '../components/PillarCards.astro';
+import { research, site } from '../data/site';
+
+const title =
+  'Free AI and Google visibility scorecard for independent home care agencies | CareVisible';
+const description =
+  'See how your agency scores on Google Business Profile, Map Pack ranking, website health, and whether ChatGPT, Gemini, Perplexity, and Google AI name you. Free, no obligation, independents only.';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is an AI visibility scorecard for a home care agency?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'It is a four part audit scoring how findable an agency is where families search today: its Google Business Profile, its ranking in the Google Map Pack across nearby searches, the health and structure of its website, and whether AI assistants such as ChatGPT, Gemini, Perplexity, and Google AI name the agency when someone asks for a recommendation.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the scorecard really free?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. There is no cost and nothing to sign to receive the initial scorecard. CareVisible sends the full breakdown directly with no sales pitch attached.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does CareVisible work with franchise home care locations?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. CareVisible works exclusively with independent, non-franchise home care agencies. Franchise visibility is largely inherited from the parent brand, so the same playbook does not apply.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why are independent agencies harder to find than franchises?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Franchise brands carry national review volume, consistent schema markup across hundreds of locations, and years of backlinks feeding a single domain. An independent agency is judged entirely on its own signals, which is why thin review counts and missing structured data hurt them disproportionately.',
+      },
+    },
+  ],
+};
+---
+
+<Base title={title} description={description} path="/" schema={[faqSchema]}>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Free scorecard &middot; independents only</span>
+        <h1>Most independent home care agencies are invisible to the tools families use to find them.</h1>
+        <p class="lede hero-lede">
+          We scored {research.agenciesScored} independent agencies across five states. Nearly all of
+          them had a serious blind spot in how families actually search today &mdash; on Google, in
+          the Map Pack, and now through AI assistants.
+        </p>
+        <div class="hero-actions">
+          <a href="/scorecard/" class="btn btn-primary">Get my free scorecard</a>
+          <a href="/how-it-works/" class="btn btn-ghost">See how it works</a>
+        </div>
+        <p class="hero-note">No cost, no obligation, and nothing to sign.</p>
+      </div>
+
+      <aside class="hero-card" aria-label="Example scorecard result">
+        <p class="hero-card-label">Sample result &middot; real pilot scan</p>
+        <div class="score-line">
+          <div>
+            <span class="score-now">39</span><span class="score-max">/100 today</span>
+          </div>
+          <span class="score-arrow" aria-hidden="true">&rarr;</span>
+          <div>
+            <span class="score-target">83</span><span class="score-max">/100 achievable</span>
+          </div>
+        </div>
+        <ul class="score-bars">
+          <li><span>Google Business Profile</span><i style="--w:50%"></i><b>15/30</b></li>
+          <li><span>Map Pack visibility</span><i style="--w:24%"></i><b>6/25</b></li>
+          <li><span>Website and schema</span><i style="--w:40%"></i><b>10/25</b></li>
+          <li><span>AI answer visibility</span><i style="--w:40%"></i><b>8/20</b></li>
+        </ul>
+        <p class="fine hero-card-fine">
+          Share of Local Voice: 0%. Never in the top three anywhere on the scanned grid.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="stats-band section-sm">
+    <div class="wrap">
+      <div class="grid grid-4">
+        <div class="stat">
+          <span class="stat-num">{research.agenciesScored}</span>
+          <span class="stat-label">independent agencies scored across IA, NE, MO, KS, MN</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">{research.underFiveReviews}</span>
+          <span class="stat-label">had fewer than five Google reviews</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">{research.noWebsite}</span>
+          <span class="stat-label">had no working website at all</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">{research.aiNamedShare}</span>
+          <span class="stat-label">
+            of local businesses are named by AI assistants when asked for a recommendation
+            <span class="fine">({research.aiNamedSource})</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="rule-accent">The four pillars we score</h2>
+      <p class="lede">
+        Every scorecard checks the same four things, because these are the four places a family
+        actually looks before they call.
+      </p>
+      <div class="pillar-wrap"><PillarCards /></div>
+    </div>
+  </section>
+
+  <section class="band-indigo">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2 class="on-dark">Search is splitting in two, and most agencies only show up in one half.</h2>
+          <p class="on-dark-soft">
+            Families still search Google. But a growing share now ask an assistant directly &mdash;
+            &ldquo;who should I call for home care for my mom in Sioux City?&rdquo; &mdash; and get one
+            short list back. If your agency is not in the data those systems trust, you are not in
+            that answer.
+          </p>
+          <a href="/learn/" class="btn btn-ghost">What AEO and GEO mean for home care</a>
+        </div>
+        <ul class="engine-list" aria-label="Assistants we test">
+          <li><span class="dot dot-gpt"></span>ChatGPT</li>
+          <li><span class="dot dot-gem"></span>Gemini</li>
+          <li><span class="dot dot-plx"></span>Perplexity</li>
+          <li><span class="dot dot-cla"></span>Claude</li>
+          <li><span class="dot dot-goo"></span>Google AI Overviews</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap wrap-narrow center">
+      <h2>Find out where you actually stand</h2>
+      <p class="lede center-lede">
+        One free scorecard, all four pillars, sent as a written report. If it turns out you are in
+        good shape, we will tell you that too.
+      </p>
+      <a href="/scorecard/" class="btn btn-primary">Get my free scorecard</a>
+      <p class="fine cta-fine">Independent, non-franchise agencies only.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    background: linear-gradient(160deg, var(--indigo) 0%, var(--indigo-deep) 100%);
+    color: #fff;
+    padding: 84px 0 92px;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero h1 { color: #fff; }
+  .hero .eyebrow { color: #FBC5AC; }
+  .hero-lede { color: rgba(255, 255, 255, .88); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+  .hero-note { font-size: .86rem; color: rgba(255, 255, 255, .68); margin-top: 16px; }
+
+  .hero-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+  }
+  .hero-card-label {
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 14px;
+  }
+  .score-line {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .score-now { font-size: 2.5rem; font-weight: 800; color: var(--bad); }
+  .score-target { font-size: 2.5rem; font-weight: 800; color: var(--ok); }
+  .score-max { font-size: .8rem; color: var(--ink-faint); margin-left: 3px; }
+  .score-arrow { color: var(--coral); font-size: 1.4rem; font-weight: 700; }
+
+  .score-bars { list-style: none; margin: 0; padding: 0; }
+  .score-bars li {
+    display: grid;
+    grid-template-columns: 1fr 74px 44px;
+    align-items: center;
+    gap: 10px;
+    font-size: .82rem;
+    margin-bottom: 10px;
+    color: var(--ink-soft);
+  }
+  .score-bars i {
+    display: block;
+    height: 7px;
+    border-radius: 4px;
+    background: var(--surface-alt);
+    position: relative;
+  }
+  .score-bars i::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--w);
+    border-radius: 4px;
+    background: var(--coral);
+  }
+  .score-bars b { text-align: right; color: var(--indigo-deep); font-size: .8rem; }
+  .hero-card-fine { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+
+  .stats-band { background: var(--surface); border-bottom: 1px solid var(--line); }
+  .stat { padding: 6px 0; }
+  .stat-num {
+    display: block;
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: var(--indigo);
+    line-height: 1.1;
+  }
+  .stat-label {
+    display: block;
+    font-size: .88rem;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    max-width: 30ch;
+  }
+
+  .pillar-wrap { margin-top: 34px; }
+
+  .band-indigo { background: var(--indigo-deep); }
+  .split {
+    display: grid;
+    grid-template-columns: 1.35fr .65fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .on-dark { color: #fff; }
+  .on-dark-soft { color: rgba(255, 255, 255, .84); max-width: 58ch; }
+  .engine-list { list-style: none; margin: 0; padding: 0; }
+  .engine-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: var(--radius);
+    color: #fff;
+    font-weight: 600;
+    font-size: .95rem;
+    margin-bottom: 9px;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+  .dot-gpt { background: #10A37F; }
+  .dot-gem { background: #4285F4; }
+  .dot-plx { background: #20B8CD; }
+  .dot-cla { background: #D97757; }
+  .dot-goo { background: #EA4335; }
+
+  .center-lede { margin-inline: auto; margin-bottom: 26px; }
+  .cta-fine { margin-top: 14px; }
+
+  @media (max-width: 960px) {
+    .hero-inner, .split { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 60px 0 68px; }
+  }
+</style>
